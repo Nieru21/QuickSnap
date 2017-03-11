@@ -21,6 +21,9 @@ namespace CardGames
 		{
 			//Fetch the next batch of UI interaction
 			SwinGame.ProcessEvents();
+			SwinGame.LoadSoundEffectNamed ("Slap", "slap.wav");
+			SwinGame.LoadSoundEffectNamed ("Punch", "punch.wav");
+			SwinGame.LoadSoundEffectNamed ("Sword", "sword.wav");
 
 			if (SwinGame.KeyTyped (KeyCode.vk_SPACE))
 			{
@@ -29,16 +32,18 @@ namespace CardGames
 			
 			if (myGame.IsStarted)
 			{
-				if(SwinGame.KeyTyped(KeyCode.vk_LSHIFT)&&SwinGame.KeyTyped(KeyCode.vk_RSHIFT))
+				if (SwinGame.KeyTyped (KeyCode.vk_LSHIFT) && SwinGame.KeyTyped (KeyCode.vk_RSHIFT))
 				{
-					//TODO sound effect
+					SwinGame.PlaySoundEffect ("Sword");
 				}
 				else if(SwinGame.KeyTyped(KeyCode.vk_LSHIFT))
 				{
+					SwinGame.PlaySoundEffect ("Punch");
 					myGame.PlayerHit(0);
 				}
 				else if(SwinGame.KeyTyped(KeyCode.vk_RSHIFT))
 				{
+					SwinGame.PlaySoundEffect ("Slap");
 					myGame.PlayerHit(1);
 				}
 			}
@@ -57,14 +62,14 @@ namespace CardGames
 			Card top = myGame.TopCard;
 			if (top != null)
 			{
-				SwinGame.DrawText (...);
-				SwinGame.DrawText (...);
-				SwinGame.DrawText (...);
+				SwinGame.DrawText ("" + myGame.Score (0), Color.White, "GameFont", 0, 30);
+				SwinGame.DrawText ("" + myGame.Score (0), Color.White, "GameFont", 0, 30);
+				SwinGame.DrawText ("" + myGame.Score (0), Color.White, "GameFont", 0, 30);
 				SwinGame.DrawCell (SwinGame.BitmapNamed ("Cards"), top.CardIndex, 521, 153);;
 			}
 			else
 			{
-				SwinGame.DrawText (...);
+				SwinGame.DrawText ("" + myGame.Score (0), Color.White, "GameFont", 0, 30);
 			}
 
 			// Draw the back of the cards... to represent the deck
