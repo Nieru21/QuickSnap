@@ -62,14 +62,14 @@ namespace CardGames
 			Card top = myGame.TopCard;
 			if (top != null)
 			{
-				SwinGame.DrawText ("" + myGame.Score (0), Color.White, "GameFont", 0, 30);
-				SwinGame.DrawText ("" + myGame.Score (0), Color.White, "GameFont", 0, 30);
-				SwinGame.DrawText ("" + myGame.Score (0), Color.White, "GameFont", 0, 30);
+				SwinGame.DrawText (...);
+				SwinGame.DrawText (...);
+				SwinGame.DrawText (...);
 				SwinGame.DrawCell (SwinGame.BitmapNamed ("Cards"), top.CardIndex, 521, 153);;
 			}
 			else
 			{
-				SwinGame.DrawText ("" + myGame.Score (0), Color.White, "GameFont", 0, 30);
+				SwinGame.DrawText (...);
 			}
 
 			// Draw the back of the cards... to represent the deck
